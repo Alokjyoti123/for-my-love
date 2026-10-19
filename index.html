@@ -2,182 +2,404 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Angrybird ♡</title>
-<style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
- margin:0;min-height:100vh;overflow-x:hidden;
- font-family:"Segoe UI",Arial,sans-serif;color:#704567;
- background:linear-gradient(135deg,#ffe0ed,#eadcff,#fff0f7);
-}
-.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden}
-.heart{position:absolute;bottom:-40px;animation:float 9s linear forwards}
-@keyframes float{
- 0%{transform:translateY(0);opacity:0}
- 15%{opacity:.8}
- 100%{transform:translateY(-110vh) rotate(35deg);opacity:0}
-}
-header{text-align:center;padding:24px 12px;color:#bd5794;font-weight:bold}
-.hero{text-align:center;padding:65px 18px 45px}
-.tag{display:inline-block;background:#ffffffa8;border-radius:30px;padding:10px 16px}
-h1{font-size:clamp(42px,9vw,75px);line-height:1.1;color:#a365b9;margin:25px 0}
-h1 span{display:block;color:#f064a1}
-p{line-height:1.8}
-.hero p{max-width:550px;margin:0 auto 25px;color:#916b8c}
-button,.btn{
- border:0;border-radius:30px;padding:13px 20px;
- cursor:pointer;font-weight:bold;text-decoration:none;display:inline-block;
- margin:5px;transition:.2s;font-size:15px
-}
-button:hover,.btn:hover{transform:translateY(-2px)}
-.primary{color:white;background:linear-gradient(100deg,#f56da6,#a783f3);box-shadow:0 8px 22px #dc85bc55}
-.secondary{background:#ffffffb8;color:#a15a91}
-section{max-width:850px;margin:auto;padding:35px 16px;scroll-margin-top:20px}
-.heading{text-align:center;margin-bottom:25px}
-.heading h2{font-size:30px;color:#a365b9;margin-bottom:8px}
-.heading p{color:#956e90}
-.card{background:#ffffffa8;border:1px solid #ffffffd9;border-radius:25px;padding:25px;box-shadow:0 15px 35px #bd8ac322}
-.letter{text-align:center}
-.envelope{font-size:75px;background:none;padding:10px}
-.message{display:none;text-align:left;background:#fff9fc;border-radius:18px;padding:22px;line-height:1.9;margin-top:15px}
-.message.show{display:block;animation:appear .5s}
-@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.memory{padding:20px;border-radius:22px;background:#ffffff9c;border:1px solid white}
-.memory .emoji{font-size:35px}
-.memory h3{color:#a65d9e}
-.memory p{font-size:14px;color:#906c8b}
-.surprise{text-align:center;padding:35px 20px}
-.gift{font-size:55px}
-.surpriseMessage{display:none;margin:20px auto 0;padding:20px;background:#fff9fc;border-radius:18px;line-height:1.8}
-.surpriseMessage.show{display:block;animation:appear .5s}
-footer{text-align:center;padding:35px 12px;color:#966d91;font-size:14px}
-@media(max-width:600px){.grid{grid-template-columns:1fr}.hero{padding-top:45px}.memory{padding:18px}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;scroll-behavior:auto!important}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Angrybird ❤️</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffe0ec, #e8dcff, #fff0f5);
+      color: #65456e;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: min(900px, 92%);
+      margin: auto;
+      padding: 35px 0 60px;
+      text-align: center;
+    }
+
+    .top {
+      display: inline-block;
+      background: rgba(255,255,255,.65);
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 13px;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 20px #dca8ce35;
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(42px, 8vw, 76px);
+      color: #d94d91;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    .heart {
+      color: #f05c9c;
+      display: inline-block;
+      animation: heartbeat 1.3s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .card {
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: 25px;
+      padding: 28px;
+      margin: 24px 0;
+      box-shadow: 0 12px 35px rgba(155, 96, 151, .12);
+      backdrop-filter: blur(10px);
+    }
+
+    h2 {
+      font-family: 'Dancing Script', cursive;
+      color: #cf5795;
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .envelope {
+      width: 160px;
+      height: 110px;
+      background: #f8a9cd;
+      border-radius: 10px;
+      margin: 25px auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 20px #c75c9840;
+      transition: transform .3s;
+    }
+
+    .envelope:hover {
+      transform: translateY(-5px);
+    }
+
+    .envelope span {
+      font-size: 40px;
+      z-index: 2;
+    }
+
+    .letter {
+      display: none;
+      text-align: left;
+      line-height: 2;
+      font-size: 14px;
+      animation: appear .5s ease;
+    }
+
+    .letter.show {
+      display: block;
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .letter p {
+      margin: 13px 0;
+    }
+
+    .memories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .memory {
+      background: #fff5fa;
+      border-radius: 18px;
+      padding: 22px 16px;
+      border: 1px solid #ffe0ef;
+    }
+
+    .memory .emoji {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .memory h3 {
+      font-size: 15px;
+      margin-bottom: 8px;
+      color: #bd4c89;
+    }
+
+    .memory p {
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    button {
+      border: none;
+      border-radius: 30px;
+      padding: 13px 24px;
+      margin-top: 18px;
+      background: linear-gradient(135deg, #ef7bb5, #b89bfa);
+      color: white;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 7px 20px #ce7fb54a;
+      transition: transform .2s;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+    }
+
+    #surprise {
+      display: none;
+      margin-top: 20px;
+      line-height: 1.9;
+      animation: appear .5s ease;
+    }
+
+    #surprise.show {
+      display: block;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 12px;
+      opacity: .8;
+    }
+
+    .floating-heart {
+      position: fixed;
+      bottom: -30px;
+      pointer-events: none;
+      z-index: -1;
+      animation: floatUp linear forwards;
+      opacity: .65;
+    }
+
+    @keyframes floatUp {
+      to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .container { padding-top: 25px; }
+      .card { padding: 21px 17px; }
+      .letter { font-size: 13px; }
+    }
+  </style>
 </head>
+
 <body>
-<div class="hearts" id="hearts"></div>
-<header>♡ Made with love by Aloo ♡</header>
+  <main class="container">
 
-<main>
-<div class="hero">
- <div class="tag">💌 A little surprise, just for you</div>
- <h1>Hey,<span>My Angrybird ♡</span></h1>
- <p>I made this tiny corner of the internet just for you.
- No special occasion needed—you deserve little reasons to smile every day. 🎀</p>
- <button class="primary" onclick="openLetter()">Open your letter 💌</button>
- <a class="btn secondary" href="#memories">Our memories ✨</a>
-</div>
+    <div class="top">♡ Made with love by Aloo ♡</div>
 
-<section id="letter">
- <div class="heading">
-  <h2>A little letter for you 💗</h2>
-  <p>Tap the envelope to open something from my heart.</p>
- </div>
- <div class="card letter">
-  <button class="envelope" onclick="toggleLetter()" aria-label="Open secret letter">💌</button>
-  <div style="color:#a16d99">Psst… this one's only for My Angrybird ♡</div>
-  <div class="message" id="letterMessage">
-   <h3 style="color:#e75e9a">To my My Angrybird, ♡</h3>
-   <p>Hey, meri Angrybird. 🥹💗</p>
-   <p>Bas yaad dilana tha ki tu mere liye bahut special hai.
-   Teri smile, teri baatein aur tera cute sa gussa—ye sab tujhe
-   <em>you</em> banata hai, and that's what makes you special to me.</p>
-   <p>Har din perfect ho zaroori nahi, but I hope you always remember
-   that you deserve kindness, happiness, and lots of reasons to smile.
-   Aaj ka din thoda boring tha, toh consider this your tiny reminder
-   that someone is cheering for you. 🫶</p>
-   <p>Thank you for being you. Stay the same adorable Angrybird. 💌</p>
-   <p style="text-align:right"><b>Always cheering for you,<br>Aloo ♡</b></p>
-  </div>
- </div>
-</section>
+    <h1>Hey, My Angrybird <span class="heart">♥</span></h1>
 
-<section id="memories">
- <div class="heading">
-  <h2>Our little corner ♡</h2>
-  <p>Little reminders of the things worth celebrating.</p>
- </div>
- <div class="grid">
-  <div class="memory">
-   <div class="emoji">🌷</div>
-   <h3>Your smile</h3>
-   <p>One smile from you can make an ordinary moment feel brighter.</p>
-  </div>
-  <div class="memory">
-   <div class="emoji">🧸</div>
-   <h3>Your cute anger</h3>
-   <p>Even your angry moments are part of the wonderfully unique you.</p>
-  </div>
-  <div class="memory">
-   <div class="emoji">🌙</div>
-   <h3>Little things</h3>
-   <p>Random chats, silly jokes, and small moments worth keeping close.</p>
-  </div>
- </div>
- <p style="text-align:center;font-size:13px;color:#966f91">
-  You can personalise these cards with your photos and real memories.
- </p>
-</section>
+    <p class="subtitle">
+      A little corner of the internet made just for you.
+      Because some people make ordinary moments feel magical. 💗
+    </p>
 
-<section id="surprise">
- <div class="heading">
-  <h2>One last little surprise 🎁</h2>
-  <p>Ready? Tap the button!</p>
- </div>
- <div class="card surprise">
-  <div class="gift">🎀</div>
-  <p>A tiny button, a tiny surprise, and a reminder just for you.</p>
-  <button class="primary" onclick="showSurprise()">Tap for your surprise 💖</button>
-  <div class="surpriseMessage" id="surpriseMessage">
-   <div style="font-size:32px">💗 🐦 💗</div>
-   <b>Official announcement!</b><br>
-   My Angrybird deserves unlimited smiles, cozy moments,
-   and unlimited reminders that she matters. 🎉<br>
-   Sending you the biggest virtual hug! 🫂
-  </div>
- </div>
-</section>
-</main>
+    <section class="card">
+      <h2>A Little Letter For You 💌</h2>
 
-<footer>
- Made with ♡ by Aloo, especially for My Angrybird<br>
- Pink skies, lavender dreams, and a little bit of love. ✨
-</footer>
+      <p>Tap the envelope, My Angrybird ♡</p>
 
-<script>
-function toggleLetter(){
- document.getElementById("letterMessage").classList.toggle("show");
-}
-function openLetter(){
- document.getElementById("letterMessage").classList.add("show");
- document.getElementById("letter").scrollIntoView({behavior:"smooth"});
-}
-function showSurprise(){
- const msg=document.getElementById("surpriseMessage");
- msg.classList.toggle("show");
- if(msg.classList.contains("show")) burstHearts();
-}
-function makeHeart(){
- const layer=document.getElementById("hearts");
- const h=document.createElement("span");
- h.className="heart";
- h.textContent=["♡","♥","💕","💗","✧"][Math.floor(Math.random()*5)];
- h.style.left=Math.random()*100+"%";
- h.style.fontSize=(15+Math.random()*20)+"px";
- h.style.animationDuration=(7+Math.random()*7)+"s";
- layer.appendChild(h);
- h.addEventListener("animationend",()=>h.remove());
-}
-function burstHearts(){
- for(let i=0;i<18;i++)setTimeout(makeHeart,i*100);
-}
-for(let i=0;i<12;i++)setTimeout(makeHeart,i*500);
-setInterval(makeHeart,1500);
-</script>
+      <div class="envelope" id="envelope" role="button"
+           tabindex="0" aria-label="Open love letter">
+        <span>💌</span>
+      </div>
+
+      <div class="letter" id="letter">
+        <p>Dear My Angrybird, 💗</p>
+
+        <p>
+          Mujhe woh din aaj bhi yaad hai jab maine tujhe pehli baar
+          bus mein dekha tha. Tu mere paas aakar baithi thi, aur sach
+          bolun toh mujhe us waqt bahut achha laga tha. Usse pehle sab
+          apna-apna crush bana rahe the, toh maine bhi mazaak mein Neha
+          ko apna crush bol diya tha. Lekin us din pehli baar mujhe
+          samajh aaya ki shayad pyaar feel kaisa hota hai. 💗
+        </p>
+
+        <p>
+          Mujhe woh sab yaad hai—bus ki left side ki third-last seat,
+          hum dono ka wahan baithna, mera andar ki taraf baithna, aur
+          tera mujhse poochhna, “Tu kal school aayega?” Chhoti si baat
+          thi, par mere liye woh moment bahut special ban gaya. School
+          se ghar aane wali woh bus ride meri sabse achhi yaadon mein
+          se ek hai. Mujhe woh din aaj bhi bilkul clearly yaad hai. 🥹
+        </p>
+
+        <p>
+          Uske baad jab hum ghar pahunche, toh mujhse theek se khana
+          bhi nahi khaya ja raha tha. Mere dimaag mein bas teri wahi
+          baat ghoom rahi thi—“Tu kal school aayega?” Sach kahun,
+          uske baad main roz bus mein tera intezaar karta tha, sochta
+          tha ki tu kab aayegi.
+        </p>
+
+        <p>
+          Aur sabse funny baat pata hai? Tab mujhe tera naam tak nahi
+          pata tha. Sach toh ye hai ki mujhe kisi bhi ladki ka naam
+          nahi pata tha, phir bhi main roz tera wait karta tha. Bas
+          tujhe ek baar phir dekhne ka mann karta tha. Aaj sochta hoon
+          toh lagta hai, bina tera naam jaane hi tu meri roz ki sabse
+          special umeed ban gayi thi. 💗
+        </p>
+
+        <p>
+          Shayad tujhe ye chhoti-chhoti baatein normal lagti hongi,
+          lekin mere liye ye memories bahut special hain. Teri smile,
+          tera gussa, teri baatein—ye sab mere din ko better bana
+          dete hain.
+        </p>
+
+        <p>
+          Thank you meri life mein aane ke liye, My Angrybird.
+          Tu mere liye bahut special hai. ❤️
+        </p>
+
+        <p style="text-align:right;">
+          Hamesha tere liye,<br>
+          <strong>Aloo ♡</strong>
+        </p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Little Memories 🌷</h2>
+
+      <div class="memories">
+        <div class="memory">
+          <div class="emoji">🚌</div>
+          <h3>That Bus Ride</h3>
+          <p>
+            Left side ki third-last seat, tera mere paas baithna,
+            aur tera poochhna, “Tu kal school aayega?”
+            Ek chhota moment, par ek special memory.
+          </p>
+        </div>
+
+        <div class="memory">
+          <div class="emoji">😊</div>
+          <h3>Your Smile</h3>
+          <p>
+            Teri smile un chhoti-chhoti cheezon mein se hai
+            jo ek normal din ko bhi special bana deti hai.
+          </p>
+        </div>
+
+        <div class="memory">
+          <div class="emoji">😤💗</div>
+          <h3>Your Cute Anger</h3>
+          <p>
+            Meri Angrybird ka gussa bhi apni hi story hai.
+            Teri little habits hi tujhe itna special banati hain.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>One Little Surprise 🎀</h2>
+
+      <p>
+        You deserve happiness, peaceful days, lots of smiles,
+        and all the little things that make you feel loved.
+      </p>
+
+      <button id="surpriseButton">Tap for a Surprise 💗</button>
+
+      <div id="surprise">
+        <h2>Surprise! 💖</h2>
+        <p>
+          My Angrybird, you are someone worth smiling about.
+          Teri smile bani rahe, tere saare din achhe guzrein,
+          aur tu hamesha khush rahe. 🥹💕
+        </p>
+        <p style="font-size: 30px;">🫂 💗 🌷 💞</p>
+        <p>Sending you one virtual hug from Aloo! ♡</p>
+      </div>
+    </section>
+
+    <div class="footer">
+      Made with lots of love, just for you. ♡<br>
+      Aloo × My Angrybird
+    </div>
+
+  </main>
+
+  <script>
+    const envelope = document.getElementById('envelope');
+    const letter = document.getElementById('letter');
+
+    function toggleLetter() {
+      letter.classList.toggle('show');
+      envelope.querySelector('span').textContent =
+        letter.classList.contains('show') ? '💖' : '💌';
+    }
+
+    envelope.addEventListener('click', toggleLetter);
+
+    envelope.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleLetter();
+      }
+    });
+
+    document.getElementById('surpriseButton')
+      .addEventListener('click', function() {
+        document.getElementById('surprise').classList.toggle('show');
+      });
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'floating-heart';
+      heart.textContent = ['♡', '♥', '💗', '💕'][
+        Math.floor(Math.random() * 4)
+      ];
+
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (14 + Math.random() * 20) + 'px';
+      heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 10000);
+    }
+
+    setInterval(createHeart, 650);
+  </script>
 </body>
 </html>
